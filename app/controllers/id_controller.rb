@@ -1,0 +1,2 @@
+class IdController < ApplicationController
+end

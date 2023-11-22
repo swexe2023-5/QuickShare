@@ -1,0 +1,2 @@
+class MemoIdentifier < ApplicationRecord
+end
