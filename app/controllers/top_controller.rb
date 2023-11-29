@@ -10,4 +10,9 @@ class TopController < ApplicationController
 
   def destroy
   end
+  
+  def login
+    @memo = Memo.find(params[:id])
+    
+  end
 end
