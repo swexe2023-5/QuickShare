@@ -1,9 +1,9 @@
 class CreateMemos < ActiveRecord::Migration[7.0]
   def change
     create_table :memos do |t|
-      t.text :memo
-      t.string :pass
+      t.text :content
       t.boolean :shared
+      t.string :password
 
       t.timestamps
     end

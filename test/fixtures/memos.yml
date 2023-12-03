@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  memo: MyText
-  pass: MyString
+  content: MyText
   shared: false
+  password: MyString
 
 two:
-  memo: MyText
-  pass: MyString
+  content: MyText
   shared: false
+  password: MyString

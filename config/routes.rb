@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'top#index'
-  resources :top
-  resources :memos, path: '/memos'
+  get 'top/index'
+  get 'memos/main'
+  get 'top/search'
 end

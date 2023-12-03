@@ -1,0 +1,7 @@
+<%= form_with model: @memo, url: memos_main_path do |f| %>
+  <div class="form-group">
+    <%= f.label :content, 'メモ内容' %>
+    <%= f.text_area :content, class: 'form-control' %>
+  </div>
+  <%= f.submit '共有', class: 'btn btn-primary' %>
+<% end %>
