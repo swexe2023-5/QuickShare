@@ -1,12 +1,12 @@
 <p>クイックシェア</p>
 
 
-<%= link_to 'メモ作成', memos_main_path, class: 'btn-primary' %>
+<p class='btn-primary'><%= link_to 'メモ作成', memos_main_path %></p>
 <div1 class="modal-fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div2 class="modal-dialog" role="document">
         <div3 class="modal-content">
             <div4 class="modal-header">
-                <p class="modal-title" id="searchModalLabel">メモ検索</p>
+                <p class="modal-title" id="">メモ検索</p>
             </div4>
             <div5 class="modal-body">
                 <%= form_with url: memos_main_path, method: :get do |f| %>
