@@ -2,7 +2,7 @@ class MemosController < ApplicationController
   def main
     @memo = Memo.new(memo_params)
     if @memo.save
-      redirect_to top_index_path, notice: 'メモを作成しました'
+      redirect_to memo_main_path, alert: 'メモを作成しました'
     else
       render :main
     end
