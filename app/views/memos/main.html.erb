@@ -1,9 +1,12 @@
 <div class='modal-body'>
   <%= form_with model: @memo, url: memos_main_path do |f| %>
+  
     <div class="form-group">
       <%= f.label :content, 'メモ内容' %><br>
       <%= f.text_area :content, class: 'form-control' %>
     </div>
     <%= f.submit '共有', class: 'btn-btn-primary' %>
+    <%= link_to 'TOPページ', top_index_path %>
+    <%= link_to '新規メモ作成', memos_main_path %>
   <% end %>
 </div>
