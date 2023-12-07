@@ -13,19 +13,12 @@ class MemosController < ApplicationController
       render :new
     end
   end
+  
+
   def show
     @memo = Memo.find(params[:id])
-
-    if @memo.password.present?
-      if params[:password].present? && BCrypt::Password.new(@memo.password_digest) == params[:password]
-        render :show
-      else
-        redirect_to top_index_path, alert: '合言葉が正しくありません'
-      end
-    else
-      render :show
-    end
   end
+
 
 
   private
