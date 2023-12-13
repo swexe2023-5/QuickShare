@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_03_105153) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_13_083829) do
   create_table "memos", force: :cascade do |t|
     t.text "content"
     t.boolean "shared"
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "expiration_date"
+    t.string "password_digest"
   end
 
 end

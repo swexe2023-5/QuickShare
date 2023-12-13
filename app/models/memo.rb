@@ -1,12 +1,8 @@
 class Memo < ApplicationRecord
   validates :content, presence: true
-  validates :password, presence: true
+  validates :password, presence: true, uniqueness: { case_sensitive: false }
 
-  before_save :hash_password
 
-  private
+  has_secure_password
 
-  def hash_password
-    self.password = BCrypt::Password.create(password)
-  end
 end

@@ -1,12 +1,10 @@
 class MemosController < ApplicationController
-  def new
+  def main
     @memo = Memo.new
   end
 
   def create
     @memo = Memo.new(memo_params)
-    @memo.password = secure_password(params[:password]) # ここでパスワードを保存
-
     if @memo.save
       redirect_to memo_path(@memo), alert: 'メモを作成しました'
     else
@@ -24,6 +22,6 @@ class MemosController < ApplicationController
   private
 
   def memo_params
-    params.require(:memo).permit(:content)
+    params.require(:memo).permit(:content, :password, :password_confirmation,:expiration_date)
   end
 end

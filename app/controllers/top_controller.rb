@@ -1,16 +1,11 @@
 class TopController < ApplicationController
   def search
-    hashed_password = BCrypt::Password.create(params[:password])
-    @memos = Memo.where(password: hashed_password)
-    if @memos.empty?
-      redirect_to top_index_path, alert: '合言葉もしくはURLが正しくありません'
-    else
-      render :main
-    end
-  end
+    memo = Memo.find_by(some_identifier) # some_identifierはメモを一意に識別するためのパラメータです（例：id、username、emailなど）
 
-  private
-  def valid_url?(url)
-    url.start_with?('http') && url.include?('/memos/')
+    if memo && memo.authenticate(params[:password])
+      render main_path
+    else
+      redirect_to top_index_path, alert: '合言葉もしくはURLが正しくありません'
+    end
   end
 end
