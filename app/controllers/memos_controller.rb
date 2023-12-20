@@ -4,7 +4,10 @@ class MemosController < ApplicationController
   end
 
   def create
-    @memo = Memo.new(memo_params)
+    @memo = Memo.new(
+    content: params[:memo][:content],
+    password: BCrypt::Password.create(params[:memo][:password]),
+    expiration_date: params[:memo][:expiration_date])
     if @memo.save
       redirect_to memo_path(@memo), alert: 'メモを作成しました'
     else
@@ -22,6 +25,7 @@ class MemosController < ApplicationController
   private
 
   def memo_params
-    params.require(:memo).permit(:content, :password, :password_confirmation,:expiration_date)
+    params.require(:memo).permit(:content, :password,:expiration_date)
   end
+  
 end
