@@ -30,6 +30,7 @@ p {
 .btn-btn-primary {
     font-size: 20px;
     background-color: lightgray;
+    margin: 20px;
 }
 
 .btn-primary{
