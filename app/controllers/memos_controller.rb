@@ -9,7 +9,7 @@ class MemosController < ApplicationController
     password: params[:memo][:password],
     expiration_date: params[:memo][:expiration_date])
     if @memo.save
-      redirect_to memo_path(Memo.find(params[:memo][:password]).id), alert: 'メモを作成しました'
+      redirect_to memo_path(@memo), alert: 'メモを作成しました'
     else
       render :new
     end
@@ -23,8 +23,8 @@ class MemosController < ApplicationController
   end
 
   def destroy
-    @Memo = Memo.find(params[:id])
-    @Memo.destroy
+    @memo = Memo.find(params[:id])
+    @memo.destroy
     redirect_to top_index_path
   end
 end

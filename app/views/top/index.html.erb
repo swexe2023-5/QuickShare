@@ -2,21 +2,21 @@
 
 
 <p class='btn-primary'><%= link_to 'メモ作成', memos_main_path %></p>
-<div1 class="modal-fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div2 class="modal-dialog" role="document">
-        <div3 class="modal-content">
-            <div4 class="modal-header">
+<div class="modal-fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
                 <p class="modal-title" id="">メモ検索</p>
-            </div4>
-            <div5 class="modal-body">
+            </div>
+            <div class="modal-body">
                 <%= form_with url: top_search_path, method: :post, local: true  do |f| %>
-                <div6 class="form-group">
+                <div class="form-group">
                     <%= f.label :password, '合言葉' %><br>
                     <%= f.text_field :password, class: 'form-control' %>
-                </div6><br>
+                </div><br>
                 <%= f.submit '検索', class: 'btn-btn-primary' %>
                 <% end %>
-            </div5>
-        </div3>
-    </div2>
-</div1>
+            </div>
+        </div>
+    </div>
+</div>
