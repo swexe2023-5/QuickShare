@@ -15,7 +15,13 @@ class MemosController < ApplicationController
     end
   end
   
-  
+  def show
+    @memo = Memo.find_by(id: params[:id])
+    if @memo.nil?
+      redirect_to root_path, alert: 'メモが見つかりませんでした。'
+    end
+  end
+
   def destroy
     @Memo = Memo.find(params[:id])
     @Memo.destroy

@@ -1,2 +1,2 @@
-<%= Memo.find(id).content %>
-<%= link_to '削除', memo_path(@memo.id), data: { turbo_method: :delete } %>
+<%= @memo.content %>
+<%= link_to '削除', memo_path(@memo), method: :delete, data: { confirm: '本当に削除しますか？' } %>
