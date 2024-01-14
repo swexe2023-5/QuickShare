@@ -6,7 +6,7 @@ class MemosController < ApplicationController
   def create
     @memo = Memo.new(
     content: params[:memo][:content],
-    password: BCrypt::Password.create(params[:memo][:password]),
+    password: params[:memo][:password],
     expiration_date: params[:memo][:expiration_date])
     if @memo.save
       redirect_to memo_path(@memo), alert: 'メモを作成しました'
@@ -15,17 +15,16 @@ class MemosController < ApplicationController
     end
   end
   
-
   def show
+    @memo = Memo.find_by(id: params[:id])
+    if @memo.nil?
+      redirect_to root_path, alert: 'メモが見つかりませんでした。'
+    end
+  end
+
+  def destroy
     @memo = Memo.find(params[:id])
+    @memo.destroy
+    redirect_to top_index_path
   end
-
-
-
-  private
-
-  def memo_params
-    params.require(:memo).permit(:content, :password,:expiration_date)
-  end
-  
 end

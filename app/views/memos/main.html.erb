@@ -1,35 +1,15 @@
 <div class='modal-body'>
   <%= form_with(model: @memo, local: true) do |f| %>
-    <% if @memo.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@memo.errors.count, "error") %> が存在します:</h2>
-
-        <ul>
-        <% @memo.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
     <div class="form-group">
       <%= f.label :content, 'メモ内容' %><br>
       <%= f.text_area :content, class: 'form-control' %>
     </div>
-
     <div class="form-group">
-      <%= f.label :password, '合言葉' %>
-      <%= f.text_field :password, class: 'form-control' %>
-      <% if @memo.errors[:password].present? %>
-        <div class="error-message">
-          <% @memo.errors[:password].each do |error| %>
-            <span><%= error %></span>
-          <% end %>
-        </div>
-      <% end %>
-
+    <%= f.label :password, '合言葉' %>
+    <%= f.text_field :password, class: 'form-control' %>
     <%= f.submit '共有', class: 'btn-btn-primary' %><br>
     <%= link_to 'TOPページ', top_index_path %><br>
     <%= link_to '新規メモ作成', memos_main_path %>
+    </div>
   <% end %>
 </div>

@@ -1,0 +1,6 @@
+<div><%= @memo.content %></div><br>
+<div>
+<% qrcode = RQRCode::QRCode.new(request.url, level: :q) %>
+<img src="<%= ChunkyPNG::Image.from_datastream(qrcode.as_png.resize(100, 100).to_datastream).to_data_url %>" alt="QR Code" />
+<%= link_to 'TOPページ', top_index_path %>
+<%= button_to '削除', memo_path(@memo), method: :delete, data: { confirm: '本当に削除しますか？' } %></div>

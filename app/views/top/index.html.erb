@@ -10,13 +10,15 @@
             </div4>
             <div5 class="modal-body">
                 <%= form_with url: top_search_path, method: :post, local: true  do |f| %>
-                <div6 class="form-group">
+                <div class="form-group">
                     <%= f.label :password, '合言葉' %><br>
                     <%= f.text_field :password, class: 'form-control' %>
                 </div6>
+
+                </div><br>
                 <%= f.submit '検索', class: 'btn-btn-primary' %>
                 <% end %>
-            </div5>
-        </div3>
-    </div2>
-</div1>
+            </div>
+        </div>
+    </div>
+</div>
