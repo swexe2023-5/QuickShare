@@ -11,7 +11,7 @@ class MemosController < ApplicationController
     if @memo.save
       redirect_to memo_path(@memo), alert: 'メモを作成しました'
     else
-      render :new
+      render :main
     end
   end
   
